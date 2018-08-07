@@ -1,41 +1,28 @@
-{% set name = "shapelib" %}
 {% set version = "1.4.1" %}
-{% set sha256 = "a4c94817365761a3a4c21bb3ca1c680a6bdfd3edd61df9fdd291d3e7645923b3" %}
 
 package:
-  name: {{ name|lower }}
+  name: shapelib
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: http://download.osgeo.org/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: http://download.osgeo.org/shapelib/shapelib-{{ version }}.tar.gz
+  sha256: a4c94817365761a3a4c21bb3ca1c680a6bdfd3edd61df9fdd291d3e7645923b3
 
 build:
-  number: 0
-  skip: true  # [win and py35]
-  features:
-    - vc9  # [win and py27]
-    - vc10  # [win and py34]
-    - vc14  # [win and (py35 or py36)]
+  number: 1
 
 requirements:
   build:
-    - python  # [win]
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and (py35 or py36)]
     - cmake
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
 
   run:
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and (py35 or py36)]
 
 test:
   commands:
-    - test -e $PREFIX/lib/libshp.so  # [linux]
-    - test -e $PREFIX/lib/libshp.dylib  # [osx]
+    - test -e $PREFIX/lib/libshp${SHLIB_EXT}  # [not win]
     - if not exist %LIBRARY_LIB%\\shp.lib exit 1  # [win]
     - if not exist %LIBRARY_BIN%\\shp.dll exit 1  # [win]
 
