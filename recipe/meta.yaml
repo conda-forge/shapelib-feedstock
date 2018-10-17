@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1000
   skip: true  # [win and py35]
   features:
     - vc9  # [win and py27]
