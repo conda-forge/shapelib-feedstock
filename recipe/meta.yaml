@@ -9,7 +9,7 @@ source:
   sha256: 1fc0a480982caef9e7b9423070b47750ba34cd0ba82668f2e638fab1d07adae1
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -36,3 +36,4 @@ about:
 extra:
   recipe-maintainers:
     - kmuehlbauer
+    - hobu
