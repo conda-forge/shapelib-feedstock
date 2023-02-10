@@ -20,7 +20,7 @@ requirements:
 
 test:
   commands:
-    - test -e $PREFIX/lib/libshp${SHLIB_EXT}  # [not win]
+    - test -f ${PREFIX}/lib/libshp${SHLIB_EXT}  # [unix]
     - if not exist %LIBRARY_LIB%\\shp.lib exit 1  # [win]
     - if not exist %LIBRARY_BIN%\\shp.dll exit 1  # [win]
 

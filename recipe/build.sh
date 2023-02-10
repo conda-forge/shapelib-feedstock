@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-set -ex
 
 # strip std settings from conda
 CXXFLAGS="${CXXFLAGS/-std=c++14/}"
