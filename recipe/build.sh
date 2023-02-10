@@ -9,7 +9,7 @@ export CXXFLAGS
 mkdir build_shapelib && cd build_shapelib
 cmake ${CMAKE_ARGS} \
     -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_LIBDIR="$CONDA_PREFIX/lib"
+    -DCMAKE_INSTALL_LIBDIR="$CONDA_PREFIX/lib" \
     -DCMAKE_PREFIX_PATH=$PREFIX
     ..
 
