@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 
-if [ $(uname) == Darwin ]; then
-  export CC=clang
-  export CXX=clang++
-  export MACOSX_DEPLOYMENT_TARGET="10.9"
-  export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
-  export CXXFLAGS="$CXXFLAGS -stdlib=libc++"
-fi
+
+# strip std settings from conda
+CXXFLAGS="${CXXFLAGS/-std=c++14/}"
+CXXFLAGS="${CXXFLAGS/-std=c++11/}"
+export CXXFLAGS
 
 mkdir build_shapelib && cd build_shapelib
-cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
-      $SRC_DIR
+cmake ${CMAKE_ARGS} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_LIBDIR="$PREFIX/lib" \
+    ..
 
-make VERBOSE=1
+cmake -LA ..
+env
+
+make ${VERBOSE_CM}
 ctest
 make install
