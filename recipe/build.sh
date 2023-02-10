@@ -9,10 +9,11 @@ export CXXFLAGS
 mkdir build_shapelib && cd build_shapelib
 cmake ${CMAKE_ARGS} \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+    -DBUILD_SHARED_LIBS=ON \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_LIBDIR=lib \
     $SRC_DIR
 
-make VERBOSE=1
+make ${VERBOSE_CM}
 ctest
 make install
