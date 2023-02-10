@@ -12,7 +12,7 @@ cmake ${CMAKE_ARGS} \
     -DBUILD_SHARED_LIBS=ON \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_LIBDIR=lib \
-    $SRC_DIR
+    ..
 
 make ${VERBOSE_CM}
 ctest
