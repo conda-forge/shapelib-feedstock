@@ -14,6 +14,9 @@ cmake ${CMAKE_ARGS} \
     -DCMAKE_INSTALL_LIBDIR=lib \
     ..
 
+cmake -LA ..
+env
+
 make ${VERBOSE_CM}
 ctest
 make install
