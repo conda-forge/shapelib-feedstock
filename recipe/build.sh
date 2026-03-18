@@ -6,6 +6,14 @@ CXXFLAGS="${CXXFLAGS/-std=c++14/}"
 CXXFLAGS="${CXXFLAGS/-std=c++11/}"
 export CXXFLAGS
 
+
+if [[ "${target_platform}" == osx-* ]]; then
+    # See https://conda-forge.org/docs/maintainer/knowledge_base.html#newer-c-features-with-old-sdk
+    CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+fi
+
+
+
 mkdir build_shapelib && cd build_shapelib
 cmake ${CMAKE_ARGS} \
     -DCMAKE_BUILD_TYPE=Release \
@@ -16,5 +24,5 @@ cmake -LA ..
 env
 
 make ${VERBOSE_CM}
-ctest
+ctest --verbose
 make install
