@@ -30,7 +30,7 @@ test:
 about:
   home: http://shapelib.maptools.org/
   license: MIT
-  license_file: COPYING
+  license_file: LICENSE-MIT
   summary: Reading, writing and updating of ESRI Shapefiles
   description: |
     The Shapefile C Library provides the ability to write simple C programs for
