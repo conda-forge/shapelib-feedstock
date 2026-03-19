@@ -24,5 +24,8 @@ cmake -LA ..
 env
 
 make ${VERBOSE_CM}
-ctest --verbose
 make install
+
+if [ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]; then
+ctest --verbose
+fi
