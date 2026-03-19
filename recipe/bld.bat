@@ -14,7 +14,7 @@ nmake
 if errorlevel 1 exit 1
 
 :: Test.
-ctest
+ctest --verbose
 if errorlevel 1 exit 1
 
 nmake install
