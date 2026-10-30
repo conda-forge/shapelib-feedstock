@@ -9,7 +9,7 @@ source:
   sha256: 3ff5ead18ca6d2fe249f0e80b361e1ad6782165115268ed4a58c780a60c1e0eb
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('shapelib', max_pin='x.x') }}
 
